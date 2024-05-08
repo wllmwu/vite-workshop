@@ -1,4 +1,4 @@
-function HomePage() {
+function NotFoundPage() {
   return (
     <>
       <h1>404: Not Found</h1>
@@ -7,4 +7,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default NotFoundPage;
