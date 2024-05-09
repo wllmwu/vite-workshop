@@ -2,26 +2,26 @@ import { Link, useLocation } from "react-router-dom";
 import classNames from "classnames";
 import styles from "./NavigationBar.module.css";
 
+const basePath = import.meta.env.BASE_URL;
+
 interface NavBarLink {
   title: string;
   to: string;
 }
 
 const navBarLinks: NavBarLink[] = [
-  { title: "Home", to: "/" },
-  { title: "About", to: "/about" },
-  { title: "Projects", to: "/projects" },
-  { title: "Contact", to: "/contact" },
+  { title: "Home", to: basePath },
+  { title: "About", to: `${basePath}/about` },
+  { title: "Projects", to: `${basePath}/projects` },
+  { title: "Contact", to: `${basePath}/contact` },
 ];
 
 function NavigationBar() {
   const location = useLocation();
-  const currentPath = location.pathname.split("/");
-  const currentBase = currentPath.length > 0 ? `/${currentPath[1]}` : "";
 
   return (
     <nav className={styles.navigationBar}>
-      <Link to="/" className={styles.homeLink}>
+      <Link to={basePath} className={styles.homeLink}>
         My Site
       </Link>
       <menu className={styles.topLinkList}>
@@ -31,7 +31,7 @@ function NavigationBar() {
               to={link.to}
               className={classNames(
                 styles.topLink,
-                currentBase === link.to ? styles.topLinkCurrent : null
+                location.pathname === link.to ? styles.topLinkCurrent : null
               )}
             >
               {link.title}
