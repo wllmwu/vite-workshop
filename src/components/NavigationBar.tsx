@@ -11,9 +11,9 @@ interface NavBarLink {
 
 const navBarLinks: NavBarLink[] = [
   { title: "Home", to: basePath },
-  { title: "About", to: `${basePath}/about` },
-  { title: "Projects", to: `${basePath}/projects` },
-  { title: "Contact", to: `${basePath}/contact` },
+  { title: "About", to: `${basePath}about` },
+  { title: "Projects", to: `${basePath}projects` },
+  { title: "Contact", to: `${basePath}contact` },
 ];
 
 function NavigationBar() {
